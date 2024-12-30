@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post Review</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+  </head>
+  <body>
+    <div class="container">
+
+      <h2><a href="/<%= post._id %>"><%= post.title %></h2></a>
+              <h4>Status</h4>
+              <p><%= post.status %></p>
+              <h4>Description</h4>
+              <p><%= post.description %></p>
+              <h4>Essay</h4>
+              <p><%= post.essay %></p>
+              <h4>Links</h4>
+              <ul>
+                <% post.links.forEach(link => { %>
+                    <li>
+                      <a href="<%= link.linkUrl %>"><%= link.linkTitle %></a>: <%= link.commentary %> <br>
+                    </li>
+                <% }) %>
+            </ul>
+
+
+              
+              <h4>Personal</h4>
+              <p><%= post.personal %></p>
+              <h4>Social Media</h4>
+              <p><%= post.socialmedia %></p>
+              <h4>Promo</h4>
+              <p><%= post.promo %></p>
+              <small class="text-muted">Author: <%= post.author %></small>
+      
+      <nav class="nav-links">
+        <a href="/<%= post._id %>/edit" class="btn btn-primary">
+          <i class="fas fa-edit"></i> Edit Post
+        </a>
+        <a href="/list" class="btn btn-secondary">Go Back to Posts</a>
+        <a href="/" class="btn btn-success">Home</a>
+      </nav>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

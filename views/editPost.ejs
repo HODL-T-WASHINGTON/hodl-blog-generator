@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit a Post</title>
+    <style>
+      .link-group {
+          margin-bottom: 10px;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+      }
+  </style>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <div class="card">
+            <div class="card-header">
+              <h1>Edit Post</h1>
+            </div>
+            <div class="card-body">
+              <form action="/<%= post._id %>?_method=PUT" method="POST">
+                <div class="form-group">
+                  <label for="title">Title</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="title"
+                    id="title"
+                    value="<%= post.title %>"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="description">description</label>
+                  <textarea
+                    class="form-control"
+                    name="description"
+                    id="description"
+                    rows="5"
+                    required><%= post.description %></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="status">Status</label>
+                  <select
+                    class="form-control"
+                    name="status"
+                    id="status"
+                    required
+                  >
+                    <option value="Draft">Draft</option>
+                    <option value="Review">Review</option>
+                    <option value="Published">Published</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="essay">Essay</label>
+                  <textarea
+                    class="form-control"
+                    name="essay"
+                    id="essay"
+                    rows="5"
+                    required><%= post.essay %></textarea>
+                </div>
+
+                <div class="form-group">
+                  <h3>Links</h3>
+                  <ul id="linksContainer">
+                  <% post.links.forEach(function(link, index) { %>
+                      <li id="link-group-<%= index %>">
+                          <strong>Link <%= index + 1 %>:</strong><br>
+                          <label for="linktitle-<%= index %>">Link Title:</label>
+                          <input type="text" id="linktitle-<%= index %>" name="links[<%= link._id %>][linkTitle]" value="<%= link.linkTitle %>"><br>
+          
+                          <label for="linkurl-<%= index %>">Link URL:</label>
+                          <input type="url" id="linkurl-<%= index %>" name="links[<%= link._id %>][linkUrl]" value="<%= link.linkUrl %>"><br>
+          
+                          <label for="commentary-<%= index %>">Commentary:</label>
+                          <input type="text" id="commentary-<%= index %>" name="links[<%= link._id %>][commentary]" value="<%= link.commentary %>"><br>
+          
+                          <button type="button" onclick="markLinkForDeletion('<%= link._id %>', 'link-group-<%= index %>')">Remove Link</button>
+                          <input type="hidden" name="links[<%= link._id %>][_id]" value="<%= link._id %>">
+                      </li>
+                      <hr>
+                  <% }) %>
+                  </ul>
+                  <button type="button" onclick="addLinkFields()">Add New Link</button><br><br>
+                   <!-- Hidden input to hold deleted link IDs -->
+                  <input type="hidden" id="deletedLinks" name="deletedLinks" value="">
+              </div> 
+
+                <div class="form-group">
+                  <label for="personal">Personal</label>
+                  <textarea
+                    class="form-control"
+                    name="personal"
+                    id="personal"
+                    rows="5"
+                    required><%=post.personal%></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="socialmedia">Social Media</label>
+                  <textarea
+                    class="form-control"
+                    name="socialmedia"
+                    id="socialmedia"
+                    rows="5"
+                    required><%= post.socialmedia %></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="promo">Promo</label>
+                  <textarea
+                    class="form-control"
+                    name="promo"
+                    id="promo"
+                    rows="5"
+                    required><%= post.promo %></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="author">Author</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="author"
+                    id="author"
+                    value="<%= post.author %>"
+                    required
+                  />
+                </div>
+                
+                <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-save"></i> Update Post
+                
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script>
+      function testFunction() {
+        console.log("Hello, world!");
+      }
+    </script>
+    <script>
+      let newLinkIndex = 0;
+      console.log(newLinkIndex);
+
+      function addLinkFields() {
+          console.log('addLinkFields function called!');
+          const container = document.getElementById('linksContainer');
+
+          const linkGroup = document.createElement('li');
+          linkGroup.className = 'link-group';
+          linkGroup.id = `new-link-group-${newLinkIndex}`;
+
+          linkGroup.innerHTML = `
+              <label for="new-linktitle-${newLinkIndex}">Link Title:</label>
+              <input type="text" id="new-linktitle-${newLinkIndex}" name="newLinks[${newLinkIndex}][linkTitle]" required><br>
+
+              <label for="new-linkurl-${newLinkIndex}">Link URL:</label>
+              <input type="url" id="new-linkurl-${newLinkIndex}" name="newLinks[${newLinkIndex}][linkUrl]" required><br>
+
+              <label for="new-commentary-${newLinkIndex}">Commentary:</label>
+              <input type="text" id="new-commentary-${newLinkIndex}" name="newLinks[${newLinkIndex}][commentary]"><br>
+
+              <button type="button" onclick="removeLinkFields('new-link-group-${newLinkIndex}')">Remove New Link</button>
+          `;
+
+          container.appendChild(linkGroup);
+          newLinkIndex++;
+      }
+
+      function removeLinkFields(linkGroupId) {
+          const linkGroup = document.getElementById(linkGroupId);
+          if (linkGroup) linkGroup.remove();
+      }
+
+      function markLinkForDeletion(linkId, linkGroupId) {
+            // Add to delete list in hidden input
+            const deletedLinksInput = document.getElementById('deletedLinks');
+            const deletedLinks = deletedLinksInput.value ? deletedLinksInput.value.split(',') : [];
+            deletedLinks.push(linkId);
+            deletedLinksInput.value = deletedLinks.join(',');
+
+            // Remove from UI
+            removeLinkFields(linkGroupId);
+        }
+
+  </script>
+  </body>
