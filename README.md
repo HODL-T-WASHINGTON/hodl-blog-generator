@@ -2,12 +2,15 @@
 
 Welcome to the official GitHub repository for The Hodl Blog Generator (THBG). Although the name might not be the catchiest, this tool is designed to streamline the process of creating and managing content for your blog or newsletter, specifically tailored for "THE HODL" editions.
 
+<img width="844" alt="Screenshot 2025-01-04 at 9 26 28 AM" src="https://github.com/user-attachments/assets/2e633078-ff41-4219-a2f3-ad97849c210b" />
+
+
 ## Overview
 
 Creating new editions of THE HODL often posed challenges due to the need for an efficient system to capture new ideas, stories, and other content. THBG addresses this need by offering a simple, intuitive way to draft, organize, and refine your blog or newsletter posts in a consistent, repeatable format.
 
-<img width="866" alt="Screenshot 2024-12-30 at 9 25 13 AM" src="https://github.com/user-attachments/assets/43408be1-d67b-4879-a427-3df4e569a7b4" />
 
+<img width="852" alt="Screenshot 2024-12-30 at 9 25 34 AM" src="https://github.com/user-attachments/assets/2af124a7-be3d-4457-9a91-1e3ccd38d4c9" />
 
 ## Features
 
@@ -15,6 +18,9 @@ Creating new editions of THE HODL often posed challenges due to the need for an 
 - **Consistent Formatting**: Draft new content with a consistent layout to maintain uniformity across all posts.
 - **Editable Drafts**: Continuously edit and perfect your content until it meets your standards, making it easier to iterate on your ideas.
 - **Object Link Integration**: Utilize a flexible linking system within posts that includes titles, URLs, and commentary, providing a richer content experience.
+
+<img width="1061" alt="Screenshot 2024-12-30 at 9 26 14 AM" src="https://github.com/user-attachments/assets/cbac7fd8-c410-4527-bba9-74ce35b1c926" />
+
 
 ## Version
 
