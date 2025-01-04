@@ -6,6 +6,9 @@ Welcome to the official GitHub repository for The Hodl Blog Generator (THBG). Al
 
 Creating new editions of THE HODL often posed challenges due to the need for an efficient system to capture new ideas, stories, and other content. THBG addresses this need by offering a simple, intuitive way to draft, organize, and refine your blog or newsletter posts in a consistent, repeatable format.
 
+<img width="866" alt="Screenshot 2024-12-30 at 9 25 13 AM" src="https://github.com/user-attachments/assets/43408be1-d67b-4879-a427-3df4e569a7b4" />
+
+
 ## Features
 
 - **Content Capture**: Effortlessly input and store ideas, stories, and other elements for each edition, reducing the clutter and enhancing creativity.
