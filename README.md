@@ -1,4 +1,4 @@
-# The Hodl Blog Generator (THBG)
+# THE HODL BLOG GENERATOR
 
 Welcome to the official GitHub repository for The Hodl Blog Generator (THBG). Although the name might not be the catchiest, this tool is designed to streamline the process of creating and managing content for your blog or newsletter, specifically tailored for "THE HODL" editions.
 
